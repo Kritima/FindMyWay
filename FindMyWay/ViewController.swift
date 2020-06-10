@@ -13,12 +13,14 @@ class ViewController: UIViewController {
     
     
     @IBOutlet weak var mapView: MKMapView!
+    let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        mapView.centerToLocation(initialLocation)
     }
 
 
+}
 }
 
