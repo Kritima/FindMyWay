@@ -20,6 +20,7 @@
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="uf8-ZK-WMZ" appends="YES" id="4X4-2u-1m0"/>
+                                    <outletCollection property="gestureRecognizers" destination="lTQ-0e-dLu" appends="YES" id="Mle-J2-HhW"/>
                                 </connections>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="FIND MY WAY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKN-4V-8d0">
@@ -59,6 +60,7 @@
                         <action selector="tapGesture:" destination="BYZ-38-t0r" id="nvu-no-vfB"/>
                     </connections>
                 </tapGestureRecognizer>
+                <pinchGestureRecognizer id="lTQ-0e-dLu"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
