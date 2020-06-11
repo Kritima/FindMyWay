@@ -57,6 +57,10 @@ func determineCurrentLocation() {
         }
         }
     
-    
+    func addAnnotation(coordinate:CLLocationCoordinate2D){
+    let annotation = MKPointAnnotation()
+    annotation.coordinate = coordinate
+    mapView.addAnnotation(annotation)
+    }
     
 }
