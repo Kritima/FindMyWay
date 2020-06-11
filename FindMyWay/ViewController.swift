@@ -48,4 +48,15 @@ func determineCurrentLocation() {
         locationManager.startUpdatingLocation()
     }
 }
+    
+    @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
+        if sender.state == .ended{
+        let locationInView = sender.location(in: mapView)
+        let tappedCoordinate = mapView.convert(locationInView, toCoordinateFrom: mapView)
+        addAnnotation(coordinate: tappedCoordinate)
+        }
+        }
+    
+    
+    
 }
