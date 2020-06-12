@@ -9,30 +9,74 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Contacts
 
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
     
     
     @IBOutlet weak var mapView: MKMapView!
+    
     var locationManager:CLLocationManager!
        var currentLocationStr = "Current location"
+    var mUserLocation:CLLocation?
+    let annotation = MKPointAnnotation()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapView.showsUserLocation = true // blue dot
-    }
-    override func viewDidAppear(_ animated: Bool) {
         determineCurrentLocation()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
+        tap.numberOfTapsRequired = 2
+        mapView.addGestureRecognizer(tap)
+        
     }
     
-     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-            let mUserLocation:CLLocation = locations[0] as CLLocation
+    @objc func doubleTapped(sender: UIGestureRecognizer) {
+    
+    let locationInView = sender.location(in: mapView)
+    let tappedCoordinate = mapView.convert(locationInView, toCoordinateFrom: mapView)
+    addAnnotation(coordinate: tappedCoordinate)
+    }
+    
+    
+    @IBAction func currentLocation(_ sender: UIButton) {
+        
+       let request = MKDirections.Request()
+        
+              request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: mUserLocation!.coordinate.latitude, longitude: mUserLocation!.coordinate.longitude), addressDictionary: nil))
+        
+        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude), addressDictionary: nil))
+        
+              request.requestsAlternateRoutes = false
+              request.transportType = .automobile
 
-            let center = CLLocationCoordinate2D(latitude: mUserLocation.coordinate.latitude, longitude: mUserLocation.coordinate.longitude)
+              let directions = MKDirections(request: request)
+
+              directions.calculate { [unowned self] response, error in
+                  guard let unwrappedResponse = response else { return }
+
+                  for route in unwrappedResponse.routes {
+                      self.mapView.addOverlay(route.polyline)
+                      self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+                  }
+              }
+        
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+             mUserLocation = locations[0] as CLLocation
+
+        let center = CLLocationCoordinate2D(latitude: mUserLocation!.coordinate.latitude, longitude: mUserLocation!.coordinate.longitude)
+        
             let mRegion = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+    
 
             mapView.setRegion(mRegion, animated: true)
         }
+    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
             print("Error - locationManager: \(error.localizedDescription)")
         }
@@ -49,18 +93,15 @@ func determineCurrentLocation() {
     }
 }
     
-    @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
-        if sender.state == .ended{
-        let locationInView = sender.location(in: mapView)
-        let tappedCoordinate = mapView.convert(locationInView, toCoordinateFrom: mapView)
-        addAnnotation(coordinate: tappedCoordinate)
-        }
-        }
     
     func addAnnotation(coordinate:CLLocationCoordinate2D){
-    let annotation = MKPointAnnotation()
     annotation.coordinate = coordinate
     mapView.addAnnotation(annotation)
     }
     
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
+        renderer.strokeColor = UIColor.blue
+        return renderer
+    }
 }
