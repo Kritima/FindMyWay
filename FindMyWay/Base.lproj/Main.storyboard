@@ -36,16 +36,13 @@
                                     <action selector="currentLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lJK-ze-LsT"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1Es-fk-CUj">
-                                <rect key="frame" x="159" y="818" width="97" height="32"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9pd-bZ-8nR">
+                                <rect key="frame" x="159" y="817" width="97" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Walk"/>
                                     <segment title="Car"/>
                                 </segments>
-                                <connections>
-                                    <action selector="methodChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="gA5-S6-lrU"/>
-                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -62,7 +59,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="bm0-qv-N34" id="2A3-Uy-zep"/>
-                        <outlet property="segmentedControl" destination="1Es-fk-CUj" id="4qa-TQ-q9h"/>
+                        <outlet property="segmentedControl" destination="9pd-bZ-8nR" id="vqM-Lr-x1b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -17,6 +17,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
+
+    
     var locationManager:CLLocationManager!
     var currentLocationStr = "Current location"
     
@@ -28,13 +30,16 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         mapView.delegate = self
         self.mapView.showsUserLocation = true // blue dot
         mapView.isZoomEnabled = false
+        segmentedControl.isHidden = true
         
         determineCurrentLocation()
         
        addDoubleTap()
+        removePin()
         
     }
     
@@ -46,7 +51,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
     
     @objc func doubleTapped(sender: UITapGestureRecognizer) {
-    
+        
     let locationInView = sender.location(in: mapView)
     let tappedCoordinate = mapView.convert(locationInView, toCoordinateFrom: mapView)
     addAnnotation(coordinate: tappedCoordinate)
@@ -57,6 +62,12 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
        mapView.addAnnotation(annotation)
        }
     
+    func removePin(){
+        mapView.removeAnnotation(annotation)
+        self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+    }
+    
+    
     
     @IBAction func currentLocation(_ sender: UIButton) {
         
@@ -65,6 +76,17 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude), addressDictionary: nil))
         
               request.requestsAlternateRoutes = false
+              segmentedControl.isHidden = false
+        
+        switch segmentedControl.selectedSegmentIndex
+           {
+           case 0:
+                request.transportType = .walking
+           case 1:
+                request.transportType = .automobile
+           default:
+               break
+           }
 
               let directions = MKDirections(request: request)
 
@@ -114,19 +136,7 @@ func determineCurrentLocation() {
         renderer.strokeColor = UIColor.blue
         return renderer
     }
-    
-    @IBAction func methodChanged(_ sender: Any) {
-        
-        switch segmentedControl.selectedSegmentIndex
-        {
-        case 0:
-            request.transportType = .walking
-        case 1:
-            request.transportType = .automobile
-        default:
-            break
-        }
-    }
+
     
     
 }
