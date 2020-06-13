@@ -19,16 +19,6 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <gestureRecognizers/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="daS-Sq-vqb">
-                                <rect key="frame" x="330" y="775" width="64" height="73"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.94084686039999998" green="0.76363569499999995" blue="0.29000955820000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <state key="normal" image="cursor.png"/>
-                                <connections>
-                                    <action selector="currentLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lJK-ze-LsT"/>
-                                </connections>
-                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9pd-bZ-8nR">
                                 <rect key="frame" x="64" y="817" width="240" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -50,6 +40,18 @@
                                 <rect key="frame" x="20" y="117" width="31" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="minus.png"/>
+                                <connections>
+                                    <action selector="zoomOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qd0-PO-O3F"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="daS-Sq-vqb">
+                                <rect key="frame" x="344" y="798" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" image="cursor-2"/>
+                                <connections>
+                                    <action selector="currentLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lJK-ze-LsT"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -65,6 +67,7 @@
                         <outlet property="mapView" destination="bm0-qv-N34" id="2A3-Uy-zep"/>
                         <outlet property="segmentedControl" destination="9pd-bZ-8nR" id="vqM-Lr-x1b"/>
                         <outlet property="zoomIn" destination="Ov0-YY-VjC" id="o2A-2J-sDH"/>
+                        <outlet property="zoomOut" destination="2l2-IV-AEP" id="xsV-g3-Z3G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -73,7 +76,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cursor.png" width="344.52337646484375" height="344.52337646484375"/>
+        <image name="cursor-2" width="512" height="512"/>
         <image name="minus.png" width="512" height="512"/>
         <image name="plus" catalog="system" width="128" height="113"/>
     </resources>

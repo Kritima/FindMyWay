@@ -13,9 +13,6 @@
 		CA909091248F108500CB5B51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA90908F248F108500CB5B51 /* Main.storyboard */; };
 		CA909093248F108600CB5B51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA909092248F108600CB5B51 /* Assets.xcassets */; };
 		CA909096248F108600CB5B51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA909094248F108600CB5B51 /* LaunchScreen.storyboard */; };
-		CA90909E24929BF600CB5B51 /* cursor.png in Resources */ = {isa = PBXBuildFile; fileRef = CA90909D24929BF600CB5B51 /* cursor.png */; };
-		CA9090A024954ABA00CB5B51 /* minus.png in Resources */ = {isa = PBXBuildFile; fileRef = CA90909F24954ABA00CB5B51 /* minus.png */; };
-		CA9090A224954BC400CB5B51 /* findmyway.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA9090A124954BC400CB5B51 /* findmyway.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,9 +24,6 @@
 		CA909092248F108600CB5B51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA909095248F108600CB5B51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA909097248F108600CB5B51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CA90909D24929BF600CB5B51 /* cursor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cursor.png; sourceTree = "<group>"; };
-		CA90909F24954ABA00CB5B51 /* minus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minus.png; sourceTree = "<group>"; };
-		CA9090A124954BC400CB5B51 /* findmyway.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = findmyway.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,9 +63,6 @@
 				CA909092248F108600CB5B51 /* Assets.xcassets */,
 				CA909094248F108600CB5B51 /* LaunchScreen.storyboard */,
 				CA909097248F108600CB5B51 /* Info.plist */,
-				CA90909D24929BF600CB5B51 /* cursor.png */,
-				CA90909F24954ABA00CB5B51 /* minus.png */,
-				CA9090A124954BC400CB5B51 /* findmyway.jpg */,
 			);
 			path = FindMyWay;
 			sourceTree = "<group>";
@@ -136,10 +127,7 @@
 			files = (
 				CA909096248F108600CB5B51 /* LaunchScreen.storyboard in Resources */,
 				CA909093248F108600CB5B51 /* Assets.xcassets in Resources */,
-				CA9090A024954ABA00CB5B51 /* minus.png in Resources */,
 				CA909091248F108500CB5B51 /* Main.storyboard in Resources */,
-				CA90909E24929BF600CB5B51 /* cursor.png in Resources */,
-				CA9090A224954BC400CB5B51 /* findmyway.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
