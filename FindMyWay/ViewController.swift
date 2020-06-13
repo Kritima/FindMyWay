@@ -15,12 +15,14 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     var locationManager:CLLocationManager!
-       var currentLocationStr = "Current location"
+    var currentLocationStr = "Current location"
     
     var mUserLocation:CLLocation?
     let annotation = MKPointAnnotation()
+    let request = MKDirections.Request()
     
     
     override func viewDidLoad() {
@@ -29,6 +31,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         mapView.delegate = self
         self.mapView.showsUserLocation = true // blue dot
         mapView.isZoomEnabled = false
+        
         determineCurrentLocation()
         
        addDoubleTap()
@@ -55,16 +58,13 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
        }
     
     
-    @IBAction func routeLocation(_ sender: UIButton) {
-        
-       let request = MKDirections.Request()
+    @IBAction func currentLocation(_ sender: UIButton) {
         
               request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: mUserLocation!.coordinate.latitude, longitude: mUserLocation!.coordinate.longitude), addressDictionary: nil))
         
         request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude), addressDictionary: nil))
         
               request.requestsAlternateRoutes = false
-              request.transportType = .automobile
 
               let directions = MKDirections(request: request)
 
@@ -114,5 +114,19 @@ func determineCurrentLocation() {
         renderer.strokeColor = UIColor.blue
         return renderer
     }
+    
+    @IBAction func methodChanged(_ sender: Any) {
+        
+        switch segmentedControl.selectedSegmentIndex
+        {
+        case 0:
+            request.transportType = .walking
+        case 1:
+            request.transportType = .automobile
+        default:
+            break
+        }
+    }
+    
     
 }
