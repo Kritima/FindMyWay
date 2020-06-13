@@ -35,6 +35,9 @@
                                     <segment title="Walk"/>
                                     <segment title="Car"/>
                                 </segments>
+                                <connections>
+                                    <action selector="transportChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="rin-yV-eBq"/>
+                                </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2l2-IV-AEP">
                                 <rect key="frame" x="20" y="117" width="30" height="30"/>

@@ -67,6 +67,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         mapView.removeAnnotation(annotation)
     }
     
+    @IBAction func transportChange(_ sender: Any) {
+        
+        routeFinder()
+    }
+    
     @IBAction func zoomIn(_ sender: UIButton) {
         
         var region: MKCoordinateRegion = mapView.region
@@ -87,35 +92,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     @IBAction func currentLocation(_ sender: UIButton) {
         
-              request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: mUserLocation!.coordinate.latitude, longitude: mUserLocation!.coordinate.longitude), addressDictionary: nil))
-        
-        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude), addressDictionary: nil))
-        
-              request.requestsAlternateRoutes = false
-              segmentedControl.isHidden = false
-        
-        switch segmentedControl.selectedSegmentIndex
-           {
-           case 0:
-                request.transportType = .walking
-           case 1:
-                request.transportType = .automobile
-           default:
-               break
-           }
-
-              let directions = MKDirections(request: request)
-
-              directions.calculate { [unowned self] response, error in
-                  guard let unwrappedResponse = response else { return }
-
-                  for route in unwrappedResponse.routes {
-                      self.mapView.addOverlay(route.polyline)
-                      self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
-                  }
-              }
+            routeFinder()
         
     }
+    
+    
     
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -144,6 +125,42 @@ func determineCurrentLocation() {
         locationManager.startUpdatingLocation()
     }
 }
+    
+    func routeFinder()
+    {
+        self.mapView.removeOverlays(self.mapView.overlays)
+        
+        request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: mUserLocation!.coordinate.latitude, longitude: mUserLocation!.coordinate.longitude), addressDictionary: nil))
+        
+        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude), addressDictionary: nil))
+        
+              request.requestsAlternateRoutes = false
+              segmentedControl.isHidden = false
+        
+        switch segmentedControl.selectedSegmentIndex
+           {
+           case 0:
+                request.transportType = .walking
+           case 1:
+                request.transportType = .automobile
+           default:
+               break
+           }
+
+              let directions = MKDirections(request: request)
+
+              directions.calculate { [unowned self] response, error in
+                  guard let unwrappedResponse = response else { return }
+
+                  for route in unwrappedResponse.routes {
+                      self.mapView.addOverlay(route.polyline)
+                      self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+                  }
+              }
+        
+        
+    }
+    
     
 
     
