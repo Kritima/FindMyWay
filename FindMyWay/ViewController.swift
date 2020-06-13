@@ -18,30 +18,44 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     var locationManager:CLLocationManager!
        var currentLocationStr = "Current location"
+    
     var mUserLocation:CLLocation?
     let annotation = MKPointAnnotation()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        mapView.delegate = self
         self.mapView.showsUserLocation = true // blue dot
+        mapView.isZoomEnabled = false
         determineCurrentLocation()
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
-        tap.numberOfTapsRequired = 2
-        mapView.addGestureRecognizer(tap)
+       addDoubleTap()
         
     }
     
-    @objc func doubleTapped(sender: UIGestureRecognizer) {
+    func addDoubleTap()
+    {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
+               tap.numberOfTapsRequired = 2
+               mapView.addGestureRecognizer(tap)
+    }
+    
+    @objc func doubleTapped(sender: UITapGestureRecognizer) {
     
     let locationInView = sender.location(in: mapView)
     let tappedCoordinate = mapView.convert(locationInView, toCoordinateFrom: mapView)
     addAnnotation(coordinate: tappedCoordinate)
     }
     
+    func addAnnotation(coordinate:CLLocationCoordinate2D){
+       annotation.coordinate = coordinate
+       mapView.addAnnotation(annotation)
+       }
     
-    @IBAction func currentLocation(_ sender: UIButton) {
+    
+    @IBAction func routeLocation(_ sender: UIButton) {
         
        let request = MKDirections.Request()
         
@@ -93,15 +107,12 @@ func determineCurrentLocation() {
     }
 }
     
-    
-    func addAnnotation(coordinate:CLLocationCoordinate2D){
-    annotation.coordinate = coordinate
-    mapView.addAnnotation(annotation)
-    }
+
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
         renderer.strokeColor = UIColor.blue
         return renderer
     }
+    
 }
