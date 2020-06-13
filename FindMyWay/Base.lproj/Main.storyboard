@@ -19,13 +19,6 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <gestureRecognizers/>
                             </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="FIND MY WAY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKN-4V-8d0">
-                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
-                                <color key="backgroundColor" red="0.99962037800000003" green="0.74834251399999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="daS-Sq-vqb">
                                 <rect key="frame" x="330" y="775" width="64" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -37,22 +30,33 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9pd-bZ-8nR">
-                                <rect key="frame" x="159" y="817" width="97" height="32"/>
+                                <rect key="frame" x="64" y="817" width="240" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Walk"/>
                                     <segment title="Car"/>
                                 </segments>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ov0-YY-VjC">
+                                <rect key="frame" x="3" y="65" width="64" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <state key="normal" image="plus" catalog="system"/>
+                                <connections>
+                                    <action selector="zoomIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v9y-HI-oVy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2l2-IV-AEP">
+                                <rect key="frame" x="20" y="117" width="31" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="minus.png"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="bm0-qv-N34" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="3f5-4j-6PY"/>
-                            <constraint firstItem="IKN-4V-8d0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7JA-EY-b4O"/>
                             <constraint firstItem="bm0-qv-N34" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8tF-YZ-wiZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bm0-qv-N34" secondAttribute="trailing" id="cGx-ik-q9y"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IKN-4V-8d0" secondAttribute="trailing" id="g7x-fw-S6m"/>
-                            <constraint firstItem="IKN-4V-8d0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="gAg-KE-CfR"/>
                             <constraint firstItem="bm0-qv-N34" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="svz-qM-gML"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -60,6 +64,7 @@
                     <connections>
                         <outlet property="mapView" destination="bm0-qv-N34" id="2A3-Uy-zep"/>
                         <outlet property="segmentedControl" destination="9pd-bZ-8nR" id="vqM-Lr-x1b"/>
+                        <outlet property="zoomIn" destination="Ov0-YY-VjC" id="o2A-2J-sDH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -69,5 +74,7 @@
     </scenes>
     <resources>
         <image name="cursor.png" width="344.52337646484375" height="344.52337646484375"/>
+        <image name="minus.png" width="512" height="512"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
     </resources>
 </document>

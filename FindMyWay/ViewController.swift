@@ -16,6 +16,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var zoomIn: UIButton!
     
 
     
@@ -64,9 +65,16 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     func removePin(){
         mapView.removeAnnotation(annotation)
-        self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
     }
     
+    @IBAction func zoomIn(_ sender: UIButton) {
+        
+        var region: MKCoordinateRegion = mapView.region
+             region.span.latitudeDelta /= 2.0
+             region.span.longitudeDelta /= 2.0
+             mapView.setRegion(region, animated: true)
+        
+    }
     
     
     @IBAction func currentLocation(_ sender: UIButton) {
