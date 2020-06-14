@@ -23,6 +23,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     var locationManager:CLLocationManager!
     var currentLocationStr = "Current location"
+    var lat: CLLocationDegrees??
+    var lon: CLLocationDegrees??
     
     var mUserLocation:CLLocation?
     let annotation = MKPointAnnotation()
@@ -129,13 +131,27 @@ func determineCurrentLocation() {
     {
         self.mapView.removeOverlays(self.mapView.overlays)
         
-        request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: mUserLocation!.coordinate.latitude, longitude: mUserLocation!.coordinate.longitude), addressDictionary: nil))
+         request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: (mUserLocation?.coordinate.latitude)!, longitude: (mUserLocation?.coordinate.longitude)!), addressDictionary: nil))
+        
+        if(lat == nil || lon == nil)
+              {
+                      let alertController = UIAlertController(title: "Error", message:
+                      "No destination selected", preferredStyle: .alert)
+                      alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+
+                      self.present(alertController, animated: true, completion: nil)
+              }
+        else
+        {
         
         request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude), addressDictionary: nil))
         
               request.requestsAlternateRoutes = false
               segmentedControl.isHidden = false
         
+        }
+        
+        // Transport Selection
         switch segmentedControl.selectedSegmentIndex
            {
            case 0:
@@ -161,7 +177,7 @@ func determineCurrentLocation() {
         
     
     
-    
+    // Adding Overlays
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
         renderer.strokeColor = UIColor.blue

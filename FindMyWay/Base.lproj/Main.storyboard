@@ -55,7 +55,7 @@
                                     <constraint firstAttribute="width" constant="240" id="pC8-VW-sv3"/>
                                 </constraints>
                                 <segments>
-                                    <segment title="Walk"/>
+                                    <segment title="walk"/>
                                     <segment title="Car"/>
                                 </segments>
                                 <connections>
@@ -73,6 +73,7 @@
                             <constraint firstItem="9pd-bZ-8nR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="mfh-FN-Cyj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9pd-bZ-8nR" secondAttribute="bottom" constant="14" id="o7d-wO-mJo"/>
                             <constraint firstItem="bm0-qv-N34" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="svz-qM-gML"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="daS-Sq-vqb" secondAttribute="trailing" constant="20" id="xo3-3G-w6f"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
