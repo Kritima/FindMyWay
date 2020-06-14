@@ -25,8 +25,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     var currentLocationStr = "Current location"
     var lat: CLLocationDegrees??
     var lon: CLLocationDegrees??
-    
     var mUserLocation:CLLocation?
+    
     let annotation = MKPointAnnotation()
     let request = MKDirections.Request()
     
@@ -34,15 +34,13 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         mapView.delegate = self
         self.mapView.showsUserLocation = true // blue dot
         mapView.isZoomEnabled = false
         segmentedControl.isHidden = true
         
         determineCurrentLocation()
-        
-       addDoubleTap()
+        addDoubleTap()
         removePin()
         
     }
@@ -63,7 +61,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     func addAnnotation(coordinate:CLLocationCoordinate2D){
         annotation.coordinate = coordinate
+        lat = annotation.coordinate.latitude
+        lon = annotation.coordinate.longitude
+        annotation.title = "Your Destination"
         mapView.addAnnotation(annotation)
+        
        }
     
     func removePin(){
@@ -130,6 +132,16 @@ func determineCurrentLocation() {
     func routeFinder()
     {
         self.mapView.removeOverlays(self.mapView.overlays)
+        
+        if(mUserLocation?.coordinate.longitude == nil || mUserLocation?.coordinate.latitude == nil)
+               {
+                       let alertController = UIAlertController(title: "Error", message:
+                       "Please enable location services in settings", preferredStyle: .alert)
+                       alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+
+                       self.present(alertController, animated: true, completion: nil)
+                       return
+               }
         
          request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: (mUserLocation?.coordinate.latitude)!, longitude: (mUserLocation?.coordinate.longitude)!), addressDictionary: nil))
         
