@@ -42,6 +42,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         determineCurrentLocation()
         addDoubleTap()
         removePin()
+    
         
     }
     
