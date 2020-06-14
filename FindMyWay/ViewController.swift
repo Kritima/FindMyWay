@@ -18,6 +18,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var zoomIn: UIButton!
     @IBOutlet weak var zoomOut: UIButton!
+    @IBOutlet weak var estimatedTime: UILabel!
     
     
     var locationManager:CLLocationManager!
@@ -59,12 +60,13 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
     
     func addAnnotation(coordinate:CLLocationCoordinate2D){
-       annotation.coordinate = coordinate
-       mapView.addAnnotation(annotation)
+        annotation.coordinate = coordinate
+        mapView.addAnnotation(annotation)
        }
     
     func removePin(){
         mapView.removeAnnotation(annotation)
+        
     }
     
     @IBAction func transportChange(_ sender: Any) {
@@ -89,14 +91,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
     }
     
-    
     @IBAction func currentLocation(_ sender: UIButton) {
         
             routeFinder()
         
     }
-    
-    
     
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -155,14 +154,13 @@ func determineCurrentLocation() {
                   for route in unwrappedResponse.routes {
                       self.mapView.addOverlay(route.polyline)
                       self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+                            
+                        }
+                    }
                   }
-              }
         
-        
-    }
     
     
-
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)

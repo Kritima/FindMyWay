@@ -19,32 +19,16 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <gestureRecognizers/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="daS-Sq-vqb">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="daS-Sq-vqb">
                                 <rect key="frame" x="344" y="798" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="9NK-1p-FSo"/>
+                                    <constraint firstAttribute="width" constant="50" id="WeE-bh-iD2"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" image="cursor-2"/>
                                 <connections>
                                     <action selector="currentLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lJK-ze-LsT"/>
-                                </connections>
-                            </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9pd-bZ-8nR">
-                                <rect key="frame" x="64" y="817" width="240" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Walk"/>
-                                    <segment title="Car"/>
-                                </segments>
-                                <connections>
-                                    <action selector="transportChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="rin-yV-eBq"/>
-                                </connections>
-                            </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2l2-IV-AEP">
-                                <rect key="frame" x="20" y="117" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="minus"/>
-                                <connections>
-                                    <action selector="zoomOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qd0-PO-O3F"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ov0-YY-VjC">
@@ -56,12 +40,38 @@
                                     <action selector="zoomIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v9y-HI-oVy"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2l2-IV-AEP">
+                                <rect key="frame" x="20" y="117" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="minus"/>
+                                <connections>
+                                    <action selector="zoomOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qd0-PO-O3F"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9pd-bZ-8nR">
+                                <rect key="frame" x="87" y="818" width="240" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="TsD-HM-qtO"/>
+                                    <constraint firstAttribute="width" constant="240" id="pC8-VW-sv3"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Walk"/>
+                                    <segment title="Car"/>
+                                </segments>
+                                <connections>
+                                    <action selector="transportChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="rin-yV-eBq"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="bm0-qv-N34" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="3f5-4j-6PY"/>
                             <constraint firstItem="bm0-qv-N34" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8tF-YZ-wiZ"/>
+                            <constraint firstItem="daS-Sq-vqb" firstAttribute="leading" secondItem="9pd-bZ-8nR" secondAttribute="trailing" constant="17" id="HoE-vk-LSz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="daS-Sq-vqb" secondAttribute="bottom" constant="14" id="ZRt-Nq-xf5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bm0-qv-N34" secondAttribute="trailing" id="cGx-ik-q9y"/>
+                            <constraint firstItem="9pd-bZ-8nR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="mfh-FN-Cyj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9pd-bZ-8nR" secondAttribute="bottom" constant="14" id="o7d-wO-mJo"/>
                             <constraint firstItem="bm0-qv-N34" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="svz-qM-gML"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
