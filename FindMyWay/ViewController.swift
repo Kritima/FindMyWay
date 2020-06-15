@@ -11,6 +11,19 @@ import MapKit
 import CoreLocation
 import Contacts
 
+class Favourite: NSObject, Codable {
+    let name: String
+    let latitude: Double
+    let Longitude: Double
+    
+    init(name: String, latitude: Double, longitude: Double)
+    {
+        self.name = name;
+        self.latitude = latitude
+        self.Longitude = longitude
+    }
+}
+
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
     
     
@@ -66,6 +79,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         lon = annotation.coordinate.longitude
         annotation.title = "Your Destination"
         mapView.addAnnotation(annotation)
+        
         
        }
     
@@ -196,6 +210,14 @@ func determineCurrentLocation() {
         renderer.strokeColor = UIColor.blue
         renderer.lineWidth = 3
         return renderer
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl)
+    {
+        let alertController = UIAlertController(title: "Your Place", message: "Welcome", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        present(alertController,animated: true, completion: nil)
     }
 
     
