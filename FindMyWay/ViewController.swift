@@ -11,18 +11,6 @@ import MapKit
 import CoreLocation
 import Contacts
 
-class Favourite: NSObject, Codable {
-    let name: String
-    let latitude: Double
-    let Longitude: Double
-    
-    init(name: String, latitude: Double, longitude: Double)
-    {
-        self.name = name;
-        self.latitude = latitude
-        self.Longitude = longitude
-    }
-}
 
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
     
