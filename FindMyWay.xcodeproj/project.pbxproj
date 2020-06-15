@@ -10,7 +10,7 @@
 		CA1FDC2D2497F93D0075B62E /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1FDC2C2497F93D0075B62E /* Pin.swift */; };
 		CA90908A248F108500CB5B51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA909089248F108500CB5B51 /* AppDelegate.swift */; };
 		CA90908C248F108500CB5B51 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA90908B248F108500CB5B51 /* SceneDelegate.swift */; };
-		CA90908E248F108500CB5B51 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA90908D248F108500CB5B51 /* ViewController.swift */; };
+		CA90908E248F108500CB5B51 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA90908D248F108500CB5B51 /* MapViewController.swift */; };
 		CA909091248F108500CB5B51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA90908F248F108500CB5B51 /* Main.storyboard */; };
 		CA909093248F108600CB5B51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA909092248F108600CB5B51 /* Assets.xcassets */; };
 		CA909096248F108600CB5B51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA909094248F108600CB5B51 /* LaunchScreen.storyboard */; };
@@ -21,7 +21,7 @@
 		CA909086248F108500CB5B51 /* FindMyWay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMyWay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA909089248F108500CB5B51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA90908B248F108500CB5B51 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CA90908D248F108500CB5B51 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CA90908D248F108500CB5B51 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		CA909090248F108500CB5B51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CA909092248F108600CB5B51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA909095248F108600CB5B51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,7 +60,7 @@
 			children = (
 				CA909089248F108500CB5B51 /* AppDelegate.swift */,
 				CA90908B248F108500CB5B51 /* SceneDelegate.swift */,
-				CA90908D248F108500CB5B51 /* ViewController.swift */,
+				CA90908D248F108500CB5B51 /* MapViewController.swift */,
 				CA90908F248F108500CB5B51 /* Main.storyboard */,
 				CA909092248F108600CB5B51 /* Assets.xcassets */,
 				CA909094248F108600CB5B51 /* LaunchScreen.storyboard */,
@@ -141,7 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA90908E248F108500CB5B51 /* ViewController.swift in Sources */,
+				CA90908E248F108500CB5B51 /* MapViewController.swift in Sources */,
 				CA90908A248F108500CB5B51 /* AppDelegate.swift in Sources */,
 				CA90908C248F108500CB5B51 /* SceneDelegate.swift in Sources */,
 				CA1FDC2D2497F93D0075B62E /* Pin.swift in Sources */,

@@ -14,6 +14,8 @@ import Contacts
 
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
     
+     var pins: [Pin] = []
+    
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -35,7 +37,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         mapView.delegate = self
+        
+        loadPins()
+        
         self.mapView.showsUserLocation = true // blue dot
         mapView.isZoomEnabled = false
         segmentedControl.isHidden = true
@@ -207,6 +213,13 @@ func determineCurrentLocation() {
         alertController.addAction(cancelAction)
         present(alertController,animated: true, completion: nil)
     }
+    
+    func loadPins() {
+           if let pins = Pin.loadPins() {
+               self.pins = pins
+               self.mapView.addAnnotations(pins)
+           }
+       }
 
     
     
