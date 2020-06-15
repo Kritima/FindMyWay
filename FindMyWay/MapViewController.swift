@@ -71,7 +71,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         annotation.coordinate = coordinate
         lat = annotation.coordinate.latitude
         lon = annotation.coordinate.longitude
-        annotation.title = "Your Destination"
         mapView.addAnnotation(annotation)
         
         
@@ -206,18 +205,26 @@ func determineCurrentLocation() {
         return renderer
     }
     
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl)
-    {
-        let alertController = UIAlertController(title: "Your Place", message: "Welcome", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-        alertController.addAction(cancelAction)
-        present(alertController,animated: true, completion: nil)
-    }
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+           
+           if annotation is MKUserLocation {
+               return nil
+           }
+           
+           // add custom annotation with image
+           let pinAnnotation = mapView.dequeueReusableAnnotationView(withIdentifier: "droppablePin") ?? MKPinAnnotationView()
+         pinAnnotation.image = UIImage(named: "placeholder")
+           pinAnnotation.canShowCallout = true
+           pinAnnotation.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+           return pinAnnotation
+       }
+       
+    
     
     func loadPins() {
            if let pins = Pin.loadPins() {
                self.pins = pins
-               self.mapView.addAnnotations(pins)
+             //  self.mapView.addAnnotations(pins)
            }
        }
 
