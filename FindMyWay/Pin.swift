@@ -8,33 +8,23 @@
 
 import Foundation
 
-class Pin: NSObject, Codable {
-    let name: String
-    let latitude: Double
-    let Longitude: Double
+class FavoritePlace{
     
-    init(name: String, latitude: Double, longitude: Double)
-    {
-        self.name = name;
-        self.latitude = latitude
-        self.Longitude = longitude
-    }
-}
-
-extension Pin {
-    static let pinsKey = "pins"
+    var placeLat: Double
+    var placeLong: Double
+    var placeName :String
+    var city :String
+    var postalCode : String
+    var country : String
     
-    static func save(pins: [Pin]) {
-        let data = try? JSONEncoder().encode(pins)  // json encoding
-        UserDefaults.standard.set(data, forKey: pinsKey)
+    init(placeLat:Double , placeLong: Double, placeName:String, city:String, postalCode: String, country:String) {
+        self.placeLat = placeLat
+        self.placeLong = placeLong
+        self.placeName = placeName
+        self.city = city
+        self.postalCode = postalCode
+        self.country = country
     }
     
-    static func loadPins() -> [Pin]? {
-        if let data = UserDefaults.standard.value(forKey: pinsKey) as? Data,  // UserDefaults
-            let pins = try? JSONDecoder().decode([Pin].self, from: data) {     // json decoding
-            
-            return pins
-        }
-        return nil
-    }
+    
 }

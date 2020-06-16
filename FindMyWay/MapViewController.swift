@@ -11,10 +11,7 @@ import MapKit
 import CoreLocation
 import Contacts
 
-
-class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
-    
-     var pins: [Pin] = []
+class MapViewController: UIViewController, CLLocationManagerDelegate{
     
     
     @IBOutlet weak var mapView: MKMapView!
@@ -29,6 +26,10 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     var lat: CLLocationDegrees??
     var lon: CLLocationDegrees??
     var mUserLocation:CLLocation?
+    var favoritePlaces: [FavoritePlace]?
+      var favoriteAddress: String?
+      var favLocation: CLLocation?
+      let defaults = UserDefaults.standard
     
     let annotation = MKPointAnnotation()
     let request = MKDirections.Request()
@@ -40,7 +41,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         mapView.delegate = self
         
-        loadPins()
+     //   loadPins()
         
         self.mapView.showsUserLocation = true // blue dot
         mapView.isZoomEnabled = false
@@ -71,6 +72,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         annotation.coordinate = coordinate
         lat = annotation.coordinate.latitude
         lon = annotation.coordinate.longitude
+        annotation.title = "Add To Favourites"
         mapView.addAnnotation(annotation)
         
         
@@ -204,29 +206,40 @@ func determineCurrentLocation() {
         renderer.lineWidth = 3
         return renderer
     }
+        
+
     
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-           
-           if annotation is MKUserLocation {
-               return nil
+    func getFavLocation()
+       {
+       //Using reverse geolocation to get address information
+        CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: lat!!, longitude: lon!!)) {  placemark, error in
+         if let error = error as? CLError
+         {
+             print("CLError:", error)
+             return
+         }
+         else if let placemark = placemark?[0]
+         {
+          
+          var placeName = ""
+          var city = ""
+          var postalCode = ""
+          var country = ""
+          
+          // Getting address information from placemarks
+          if let name = placemark.name { placeName += name }
+          if let locality = placemark.subLocality { city += locality }
+          if let code = placemark.postalCode { postalCode += code }
+          if let country_pc = placemark.country { country += country_pc }
+
+            let place = FavoritePlace(placeLat: self.lat!!, placeLong:self.lon!!, placeName: placeName, city: city, postalCode: postalCode, country: country)
+        
+          self.favoritePlaces?.append(place)
+        //  self.saveData()
+          self.navigationController?.popToRootViewController(animated: true)
+               }
            }
-           
-           // add custom annotation with image
-           let pinAnnotation = mapView.dequeueReusableAnnotationView(withIdentifier: "droppablePin") ?? MKPinAnnotationView()
-         pinAnnotation.image = UIImage(named: "placeholder")
-           pinAnnotation.canShowCallout = true
-           pinAnnotation.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-           return pinAnnotation
-       }
-       
-    
-    
-    func loadPins() {
-           if let pins = Pin.loadPins() {
-               self.pins = pins
-             //  self.mapView.addAnnotations(pins)
-           }
-       }
+    }
 
     
     
