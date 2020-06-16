@@ -26,6 +26,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate{
     var lat: CLLocationDegrees??
     var lon: CLLocationDegrees??
     var mUserLocation:CLLocation?
+    
     var favoritePlaces: [FavoritePlace]?
       var favoriteAddress: String?
       var favLocation: CLLocation?

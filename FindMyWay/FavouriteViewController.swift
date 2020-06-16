@@ -7,3 +7,18 @@
 //
 
 import Foundation
+
+class FavouriteListTableViewController: UITableViewController {
+
+var places : [FavoritePlace]?
+var deleteArray : [FavoritePlace]?
+let defaults = UserDefaults.standard
+
+
+override func viewDidLoad()
+{
+    super.viewDidLoad()
+
+}
+}
+

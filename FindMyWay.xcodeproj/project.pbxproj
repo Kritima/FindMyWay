@@ -43,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA1FDC32249937D00075B62E /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CA1FDC30249933E60075B62E /* Extension+MapViewController.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		CA90907D248F108500CB5B51 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +70,7 @@
 		CA909088248F108500CB5B51 /* FindMyWay */ = {
 			isa = PBXGroup;
 			children = (
+				CA1FDC32249937D00075B62E /* Extension */,
 				CA909089248F108500CB5B51 /* AppDelegate.swift */,
 				CA90908B248F108500CB5B51 /* SceneDelegate.swift */,
 				CA90908D248F108500CB5B51 /* MapViewController.swift */,
@@ -71,7 +80,6 @@
 				CA909097248F108600CB5B51 /* Info.plist */,
 				CA1FDC2C2497F93D0075B62E /* Pin.swift */,
 				CA1FDC2E249875F90075B62E /* FavouriteViewController.swift */,
-				CA1FDC30249933E60075B62E /* Extension+MapViewController.swift */,
 			);
 			path = FindMyWay;
 			sourceTree = "<group>";
