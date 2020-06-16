@@ -24,7 +24,6 @@ extension MapViewController: MKMapViewDelegate {
             pinAnnotation.pinTintColor = UIColor.red
             pinAnnotation.canShowCallout = true
             
-            //Adding custom button
             let mapsButton = UIButton()
             mapsButton.setImage(UIImage(named :"star"), for: .normal)
             mapsButton.frame = CGRect(x: 0, y: 0, width: 32, height: 32)

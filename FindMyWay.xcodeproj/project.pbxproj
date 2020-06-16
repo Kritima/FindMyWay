@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CA1FDC2D2497F93D0075B62E /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1FDC2C2497F93D0075B62E /* Pin.swift */; };
+		CA1FDC2D2497F93D0075B62E /* FavouritePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1FDC2C2497F93D0075B62E /* FavouritePlace.swift */; };
 		CA1FDC2F249875F90075B62E /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1FDC2E249875F90075B62E /* FavouriteViewController.swift */; };
 		CA1FDC31249933E60075B62E /* Extension+MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1FDC30249933E60075B62E /* Extension+MapViewController.swift */; };
 		CA90908A248F108500CB5B51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA909089248F108500CB5B51 /* AppDelegate.swift */; };
@@ -19,7 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CA1FDC2C2497F93D0075B62E /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
+		CA1FDC2C2497F93D0075B62E /* FavouritePlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritePlace.swift; sourceTree = "<group>"; };
 		CA1FDC2E249875F90075B62E /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 		CA1FDC30249933E60075B62E /* Extension+MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+MapViewController.swift"; sourceTree = "<group>"; };
 		CA909086248F108500CB5B51 /* FindMyWay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMyWay.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,7 +78,7 @@
 				CA909092248F108600CB5B51 /* Assets.xcassets */,
 				CA909094248F108600CB5B51 /* LaunchScreen.storyboard */,
 				CA909097248F108600CB5B51 /* Info.plist */,
-				CA1FDC2C2497F93D0075B62E /* Pin.swift */,
+				CA1FDC2C2497F93D0075B62E /* FavouritePlace.swift */,
 				CA1FDC2E249875F90075B62E /* FavouriteViewController.swift */,
 			);
 			path = FindMyWay;
@@ -160,7 +160,7 @@
 				CA90908A248F108500CB5B51 /* AppDelegate.swift in Sources */,
 				CA90908C248F108500CB5B51 /* SceneDelegate.swift in Sources */,
 				CA1FDC2F249875F90075B62E /* FavouriteViewController.swift in Sources */,
-				CA1FDC2D2497F93D0075B62E /* Pin.swift in Sources */,
+				CA1FDC2D2497F93D0075B62E /* FavouritePlace.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

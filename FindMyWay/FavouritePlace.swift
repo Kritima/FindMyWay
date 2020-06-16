@@ -8,22 +8,23 @@
 
 import Foundation
 
-class FavoritePlace{
+class FavouritePlace{
     
-    var placeLat: Double
-    var placeLong: Double
-    var placeName :String
+    var name :String
     var city :String
     var postalCode : String
     var country : String
+    var latitude: Double
+    var longitude: Double
     
-    init(placeLat:Double , placeLong: Double, placeName:String, city:String, postalCode: String, country:String) {
-        self.placeLat = placeLat
-        self.placeLong = placeLong
-        self.placeName = placeName
+    init(name:String, city:String, postalCode: String, country:String, latitude:Double , longitude: Double) {
+        
+        self.name = name
         self.city = city
         self.postalCode = postalCode
         self.country = country
+        self.latitude = latitude
+        self.longitude = longitude
     }
     
     
