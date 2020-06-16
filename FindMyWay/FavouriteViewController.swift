@@ -6,9 +6,9 @@
 //  Copyright © 2020 Kritima Kukreja. All rights reserved.
 //
 
-import Foundation
+/*import Foundation
 
-class FavouriteListTableViewController: UITableViewController {
+//class FavouriteListTableViewController: UITableViewController {
 
 var places : [FavoritePlace]?
 var deleteArray : [FavoritePlace]?
@@ -20,5 +20,5 @@ override func viewDidLoad()
     super.viewDidLoad()
 
 }
-}
+}*/
 
