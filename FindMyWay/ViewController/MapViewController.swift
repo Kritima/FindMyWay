@@ -27,7 +27,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate{
     var lon: CLLocationDegrees??
     var mUserLocation:CLLocation?
     
-    var favoritePlaces: [FavoritePlace]?
+    var favouritePlaces: [FavouritePlace]?
       var favoriteAddress: String?
       var favLocation: CLLocation?
       let defaults = UserDefaults.standard
@@ -78,6 +78,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate{
         
         
        }
+    
+    func getDataFilePath() -> String
+    {
+        //Getting path to txt file
+        let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let filePath = documentPath.appending("/places-data.txt")
+        return filePath
+    }
+        
     
     func removePin(){
         mapView.removeAnnotation(annotation)
@@ -212,7 +221,6 @@ func determineCurrentLocation() {
     
     func getFavLocation()
        {
-       //Using reverse geolocation to get address information
         CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: lat!!, longitude: lon!!)) {  placemark, error in
          if let error = error as? CLError
          {
@@ -222,24 +230,41 @@ func determineCurrentLocation() {
          else if let placemark = placemark?[0]
          {
           
-          var placeName = ""
+          var name = ""
           var city = ""
           var postalCode = ""
           var country = ""
           
-          // Getting address information from placemarks
-          if let name = placemark.name { placeName += name }
+          if let name_p = placemark.name { name += name_p }
           if let locality = placemark.subLocality { city += locality }
           if let code = placemark.postalCode { postalCode += code }
           if let country_pc = placemark.country { country += country_pc }
 
-            let place = FavoritePlace(placeLat: self.lat!!, placeLong:self.lon!!, placeName: placeName, city: city, postalCode: postalCode, country: country)
+            let place = FavouritePlace(name: name, city: city, postalCode: postalCode, country: country, latitude: self.lat!!, longitude:self.lon!!)
         
-          self.favoritePlaces?.append(place)
-        //  self.saveData()
+          self.favouritePlaces?.append(place)
+           self.saveData()
           self.navigationController?.popToRootViewController(animated: true)
                }
            }
+    }
+    
+    func saveData()
+    {
+        let filePath = getDataFilePath()
+        var saveString = ""
+        for place in favouritePlaces!
+        {
+            saveString = "\(saveString)\(place.latitude),\(place.longitude),\(place.name),\(place.city),\(place.country),\(place.postalCode)\n"
+                 do
+                 {
+                    try saveString.write(toFile: filePath, atomically: true, encoding: .utf8)
+                 }
+                 catch
+                 {
+                     print(error)
+                 }
+        }
     }
 
     

@@ -10,6 +10,8 @@
 		CA1FDC2D2497F93D0075B62E /* FavouritePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1FDC2C2497F93D0075B62E /* FavouritePlace.swift */; };
 		CA1FDC2F249875F90075B62E /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1FDC2E249875F90075B62E /* FavouriteViewController.swift */; };
 		CA1FDC31249933E60075B62E /* Extension+MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1FDC30249933E60075B62E /* Extension+MapViewController.swift */; };
+		CA1FDC36249D46BD0075B62E /* EditMarkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1FDC35249D46BD0075B62E /* EditMarkerViewController.swift */; };
+		CA1FDC38249D47720075B62E /* TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1FDC37249D47720075B62E /* TableViewExtension.swift */; };
 		CA90908A248F108500CB5B51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA909089248F108500CB5B51 /* AppDelegate.swift */; };
 		CA90908C248F108500CB5B51 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA90908B248F108500CB5B51 /* SceneDelegate.swift */; };
 		CA90908E248F108500CB5B51 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA90908D248F108500CB5B51 /* MapViewController.swift */; };
@@ -22,6 +24,8 @@
 		CA1FDC2C2497F93D0075B62E /* FavouritePlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritePlace.swift; sourceTree = "<group>"; };
 		CA1FDC2E249875F90075B62E /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 		CA1FDC30249933E60075B62E /* Extension+MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+MapViewController.swift"; sourceTree = "<group>"; };
+		CA1FDC35249D46BD0075B62E /* EditMarkerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMarkerViewController.swift; sourceTree = "<group>"; };
+		CA1FDC37249D47720075B62E /* TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtension.swift; sourceTree = "<group>"; };
 		CA909086248F108500CB5B51 /* FindMyWay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMyWay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA909089248F108500CB5B51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA90908B248F108500CB5B51 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,8 +51,26 @@
 			isa = PBXGroup;
 			children = (
 				CA1FDC30249933E60075B62E /* Extension+MapViewController.swift */,
+				CA1FDC37249D47720075B62E /* TableViewExtension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		CA1FDC3424993E220075B62E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CA1FDC39249D4B510075B62E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CA1FDC2E249875F90075B62E /* FavouriteViewController.swift */,
+				CA1FDC35249D46BD0075B62E /* EditMarkerViewController.swift */,
+				CA90908D248F108500CB5B51 /* MapViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		CA90907D248F108500CB5B51 = {
@@ -70,16 +92,16 @@
 		CA909088248F108500CB5B51 /* FindMyWay */ = {
 			isa = PBXGroup;
 			children = (
+				CA1FDC39249D4B510075B62E /* ViewController */,
+				CA1FDC3424993E220075B62E /* Model */,
 				CA1FDC32249937D00075B62E /* Extension */,
 				CA909089248F108500CB5B51 /* AppDelegate.swift */,
 				CA90908B248F108500CB5B51 /* SceneDelegate.swift */,
-				CA90908D248F108500CB5B51 /* MapViewController.swift */,
 				CA90908F248F108500CB5B51 /* Main.storyboard */,
 				CA909092248F108600CB5B51 /* Assets.xcassets */,
 				CA909094248F108600CB5B51 /* LaunchScreen.storyboard */,
 				CA909097248F108600CB5B51 /* Info.plist */,
 				CA1FDC2C2497F93D0075B62E /* FavouritePlace.swift */,
-				CA1FDC2E249875F90075B62E /* FavouriteViewController.swift */,
 			);
 			path = FindMyWay;
 			sourceTree = "<group>";
@@ -155,8 +177,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA1FDC36249D46BD0075B62E /* EditMarkerViewController.swift in Sources */,
 				CA90908E248F108500CB5B51 /* MapViewController.swift in Sources */,
 				CA1FDC31249933E60075B62E /* Extension+MapViewController.swift in Sources */,
+				CA1FDC38249D47720075B62E /* TableViewExtension.swift in Sources */,
 				CA90908A248F108500CB5B51 /* AppDelegate.swift in Sources */,
 				CA90908C248F108500CB5B51 /* SceneDelegate.swift in Sources */,
 				CA1FDC2F249875F90075B62E /* FavouriteViewController.swift in Sources */,
