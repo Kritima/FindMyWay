@@ -10,13 +10,13 @@
         <!--Favourite List Table View Controller-->
         <scene sceneID="q7I-rS-p1h">
             <objects>
-                <tableViewController id="0EP-DU-1yU" customClass="FavouriteListTableViewController" customModule="FindMyWay" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="sbPlacesList" id="0EP-DU-1yU" customClass="FavouriteListTableViewController" customModule="FindMyWay" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="DOs-8Z-hz8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="JeC-5Z-Fgg" detailTextLabel="1nL-wq-mkO" style="IBUITableViewCellStyleSubtitle" id="IDL-8J-bLO">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="JeC-5Z-Fgg" detailTextLabel="1nL-wq-mkO" style="IBUITableViewCellStyleSubtitle" id="IDL-8J-bLO" userLabel="tblCell">
                                 <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IDL-8J-bLO" id="SWZ-xb-XA5">
@@ -57,21 +57,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JeI-D1-Qhz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2049.275362318841" y="147.99107142857142"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="wd3-bM-nR3">
-            <objects>
-                <viewController id="NyY-j8-HZi" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="kAL-8r-s5d">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="P0L-uY-8vU"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aUl-Vf-Q0Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4388" y="118"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -191,6 +176,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kmD-4f-Hge" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1139.1304347826087" y="147.99107142857142"/>
+        </scene>
+        <!--Edit Marker View Controller-->
+        <scene sceneID="dHw-IV-NgL">
+            <objects>
+                <viewController storyboardIdentifier="editMarkerVC" id="N5X-XW-iNT" customClass="EditMarkerViewController" customModule="FindMyWay" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="olk-MN-l5E">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mqJ-KK-0FW">
+                                <rect key="frame" x="1" y="45" width="412" height="816"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="mqJ-KK-0FW" firstAttribute="top" secondItem="1ll-LT-zNy" secondAttribute="top" constant="1" id="6AE-Q6-VcT"/>
+                            <constraint firstItem="1ll-LT-zNy" firstAttribute="trailing" secondItem="mqJ-KK-0FW" secondAttribute="trailing" constant="1" id="Ttl-Gd-9mm"/>
+                            <constraint firstItem="mqJ-KK-0FW" firstAttribute="leading" secondItem="1ll-LT-zNy" secondAttribute="leading" constant="1" id="V8y-i3-nfx"/>
+                            <constraint firstItem="1ll-LT-zNy" firstAttribute="bottom" secondItem="mqJ-KK-0FW" secondAttribute="bottom" constant="1" id="qoe-Gt-swK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1ll-LT-zNy"/>
+                    </view>
+                    <connections>
+                        <outlet property="editMap" destination="mqJ-KK-0FW" id="haG-Hb-BM6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WUP-rv-wYP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3793" y="166"/>
         </scene>
     </scenes>
     <resources>

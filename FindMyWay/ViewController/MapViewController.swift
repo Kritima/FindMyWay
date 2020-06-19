@@ -51,6 +51,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate{
         determineCurrentLocation()
         addDoubleTap()
         removePin()
+        loadData()
     
         
     }
@@ -266,6 +267,46 @@ func determineCurrentLocation() {
                  }
         }
     }
+    
+      func loadData()
+            {
+                favouritePlaces = [FavouritePlace]()
+                    
+                let filePath = getDataFilePath()
+                    
+                if FileManager.default.fileExists(atPath: filePath)
+                {
+                    do
+                      {
+                        //Reading content from file path string
+                         let fileContent = try String(contentsOfFile: filePath)
+                         let contentArray = fileContent.components(separatedBy: "\n")
+                         for content in contentArray
+                         {
+                               
+                            let placeContent = content.components(separatedBy: ",")
+                            if placeContent.count == 6
+                                {
+                                    let place = FavouritePlace(name: placeContent[2], city: placeContent[3], postalCode: placeContent[4], country: placeContent[5],latitude: Double(placeContent[0]) ?? 0.0, longitude: Double(placeContent[1]) ?? 0.0)
+                                    favouritePlaces?.append(place)
+                                }
+                         }
+                      }
+                        catch
+                        {
+                            print(error)
+                        }
+                 }
+             }
+                
+            override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+            {
+                if let sbPlacesList = segue.destination as?
+                    FavouriteListTableViewController{
+                sbPlacesList.places = self.favouritePlaces
+            }
+    }
+                
 
     
     
